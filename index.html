@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="styleSheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/666b5872f9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="frame Fr_One">
+            <input type="checkbox" class="switch">
+            <div class="lamp">
+                <div class="light">
+                </div>
+            </div>
+        </div>
+        <div class="frame Fr_Two">
+            <nav class="menu">
+                <a href="" class="menu-item" style="--color:#16d6fa">
+                    <div class="menu-text-container origin">
+                        <span>Faceboook</span>
+                    </div>
+                </a>
+                <a href="" class="menu-item" style="--color:#a8f387">
+                    <div class="menu-text-container origin">
+                        <span>Instagram</span>
+                    </div>
+                </a>
+                <a href="" class="menu-item" style="--color:#fec603">
+                    <div class="menu-text-container origin">
+                        <span>Twitter</span>
+                    </div>
+                </a>
+                <a href="" class="menu-item" style="--color:#ea1a7f">
+                    <div class="menu-text-container origin">
+                        <span>Linkedin</span>
+                    </div>
+                </a>
+            </nav>
+        </div>
+        <div class="frame Fr_Three">
+            <div class="wave">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="frame Fr_Four">
+            <div class="animated-word">
+                <div class="letter">C</div>
+                <div class="letter">B</div>
+                <div class="letter">.</div>
+                <div class="letter">T</div>
+                <div class="letter">r</div>
+                <div class="letter">ư</div>
+                <div class="letter">ờ</div>
+                <div class="letter">n</div>
+                <div class="letter">g</div>
+            </div>
+        </div>
+        <div class="frame Fr_Five">
+            <button>
+                <span>Home</span>
+            </button>
+        </div>
+        <div class="frame Fr_Six">
+            <div class="zoom-wrapper">
+                <img src="./bg_1.webp" alt="Forest"/>
+            </div>
+        </div>
+        <div class="frame Fr_Seven">
+            <p>
+                Spice up Your type with class
+                <span>
+                    Code the World
+                </span>
+                &mdash; no JavaScript required &mdash;
+            </p>
+        </div>
+        <div class="frame Fr_Eight">
+           <div class="wrapper">
+            <div class="display">
+                <div id="time">12:00:00 PM</div>
+            </div>
+            <span></span>
+            <span></span>
+           </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    const menuItems= document.querySelectorAll(".menu-item");
+
+menuItems.forEach((item)=>{
+    const text=item.querySelector(".menu-text-container.origin span").innerText.split("");
+    item.querySelector(".menu-text-container.origin").innerHTML="";
+    text.forEach((letter,index)=>{
+        item.querySelector(".menu-text-container.origin").innerHTML+=
+        `<span style="--index: ${index}">${letter}</span>`
+    });
+    const textClone=item    
+        .querySelector(".menu-text-container.origin")
+        .cloneNode(true);
+    textClone.classList.remove("origin");
+    textClone.classList.add("clone");
+    item.appendChild(textClone);
+})
+</script>
+
+<!-- eight  -->
+<script>
+    setInterval(()=>{
+      const time = document.querySelector(".display #time");
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      let day_night = "AM";
+      if(hours > 12){
+        day_night = "PM";
+        hours = hours - 12;
+      }
+      if(seconds < 10){
+        seconds = "0" + seconds;
+      }
+      if(minutes < 10){
+        minutes = "0" + minutes;
+      }
+      if(hours < 10){
+        hours = "0" + hours;
+      }
+      time.textContent = hours + ":" + minutes + ":" + seconds + " "+ day_night;
+    });
+ </script>
+ 
+</html>
